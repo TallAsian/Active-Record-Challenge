@@ -1,16 +1,18 @@
 require_relative 'ar.rb'
 
-while x < 10
+x=0
+y=0
+10.times do
     tests = Category.new(
         name: Faker::Food.dish,
         description: Faker::Food.description
     )
-    while y < 10
+    10.times do
         testing = Product.new(
             name: Faker::Food.allergen,
             description: Faker::Food.description,
-            price: Faker:Number.number(from: 1, to: 4),
-            stock_quantity: Faker:Number.number(from:1, to: 3)
+            price: Faker::Number.between(from: 1, to: 1000),
+            stock_quantity: Faker::Number.between(from: 1, to: 1000)
         )
     end
 end
