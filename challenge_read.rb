@@ -40,14 +40,14 @@ first_product = all_products[0]
 puts "Category: #{first_product.category.name}"
 
 #Find a specific category and use it to build and persist a new product associated with this category.
-# condiment = Category.where(:name => 'Condiments').first
+condiment = Category.where(:name => 'Condiments').first
 
-# ketchup = condiment.products.build( name: "Ketchup",
-#     description: "Made from tomatoes",
-#     price: 3,
-#     stock_quantity: 35)
+ketchup = condiment.products.build( name: "Ketchup",
+    description: "Made from tomatoes",
+    price: 3,
+    stock_quantity: 35)
 
-# ketchup.save
+ketchup.save
 
 #Find a specific category and then use it to locate all the the associated products that cost over 10.
 seafood = Category.where(:name => 'Seafood').first
