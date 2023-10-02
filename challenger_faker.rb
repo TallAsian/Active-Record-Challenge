@@ -1,19 +1,19 @@
 require_relative 'ar.rb'
 
 10.times do
-    tests = Category.new(
-        name: Faker::Lorem.word,
-        description: Faker::Lorem.sentence
+    new_categ = Category.new(
+        name: Faker::Lorem.unique.word,
+        description: Faker::Lorem.unique.sentence
     )
-    tests.save
-    cat_id = Category.where(:id => tests.id).first
+    new_categ.save
+    categ_id = Category.where(:id => new_categ.id).first
     10.times do
-        testing = cat_id.products.build(
-            name: Faker::Lorem.word,
-            description: Faker::Lorem.sentence,
+        new_prod = categ_id.products.build(
+            name: Faker::Lorem.unique.word,
+            description: Faker::Lorem.unique.sentence,
             price: Faker::Number.between(from: 1, to: 1000),
             stock_quantity: Faker::Number.between(from: 1, to: 1000)
         )
-        testing.save
+        new_prod.save
     end
 end
